@@ -5,10 +5,12 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <time.h>
+#include <unistd.h>
 #include <string>
 #include <map>
 #include <fstream>
 #include <iostream>
+#include <sstream>
 #include <vector>
 #include <algorithm>
 #include "rfw_timer.h"
@@ -19,6 +21,7 @@ using namespace std;
 #define K             1000
 //#define NUM_TO_SELECT 5
 char line[MAXLINE]; /* stores input line */
+/* Get the process ID of the calling process.  */
 
 long int rand_seeds[K];
 
@@ -36,6 +39,44 @@ int *temp_stack_2;
 int n, m; /* number of nodes, arcs */
 int *Gout, *GfirstOut, *GlastOut; // adjacency list
 int *Gin_full, *GfirstIn_full, *GlastIn_full; // reverce adjacency list
+
+inline string intToStr(int i) {
+    stringstream sx;
+    sx << i;
+    return sx.str();
+}
+
+inline unsigned int strToInt(string s) {
+    unsigned int i;
+    istringstream myStream(s);
+
+    if(myStream >> i)
+        return i;
+
+    else {
+        std::cout << "String " << s << " is not a number." << endl;
+        return atoi(s.c_str());
+    }
+
+    return i;
+}
+
+float getCurrentMemoryUsage() { //megabyte verii
+    string pid = intToStr(unsigned(getpid()));
+    string outfile = "temp/tmp_" + pid + ".txt";
+    string command = "pmap " + pid + " | grep -i Total | awk '{print $2}' > " + outfile;
+    system(command.c_str());
+
+    string mem_str;
+    ifstream ifs(outfile.c_str());
+    std::getline(ifs, mem_str);
+    ifs.close();
+
+    mem_str = mem_str.substr(0, mem_str.size()-1);
+    float mem = (float)strToInt(mem_str);
+
+    return mem/1024; // in MB
+}
 
 int reachable_from_initial_seeds(int *GfirstOut, int* Gout, bool* reachable_cascade, bool* reachable, vector<int> &seeds){
     
@@ -453,7 +494,8 @@ void readGraph(const char *file,const char *file2, const char *file3) {
 }
 
 int main(int argc, char *argv[]) {
-    if (argc != 5) {
+    if (argc != 6) {
+        // add one
         printf("\n usage: %s <input file> <seeds 1 file> <seeds 2 file> <num seeds>\n\n", argv[0]);
         exit(-1);
     }
@@ -461,7 +503,8 @@ int main(int argc, char *argv[]) {
     char *file = argv[1];
     char *file2 = argv[2];
     char *file3 = argv[3];
-    int NUM_TO_SELECT = atoi(argv[4]);
+    char *fileout = argv[4];
+    int NUM_TO_SELECT = atoi(argv[5]);
 
     readGraph(file, file2, file3);
 
@@ -478,7 +521,7 @@ int main(int argc, char *argv[]) {
     fprintf (stderr, "totaltime %f\n", t);
     // store the selected seeds
     ofstream outputfile;
-    outputfile.open("output.txt");
+    outputfile.open(fileout);
 
     outputfile << "red nodes: ";
 
@@ -507,6 +550,10 @@ int main(int argc, char *argv[]) {
 
     outputfile << "time: " << t << endl;
 
+    float totalmemory = getCurrentMemoryUsage();
+    outputfile << "memory: " << totalmemory << endl;
+
+    fprintf (stderr, "total memory %f\n", totalmemory);
     outputfile.close();
 
     return 0;
