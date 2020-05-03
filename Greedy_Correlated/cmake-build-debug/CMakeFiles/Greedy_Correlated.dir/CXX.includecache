@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/sijing/project/objective-allocation-of-political-ads/BalancedExposure/Greedy_Correlated/Greedy_Correlated.cpp
+stdio.h
+-
+stdlib.h
+-
+assert.h
+-
+time.h
+-
+string
+-
+map
+-
+fstream
+-
+iostream
+-
+vector
+-
+algorithm
+-
+rfw_timer.h
+/home/sijing/project/objective-allocation-of-political-ads/BalancedExposure/Greedy_Correlated/rfw_timer.h
+
+/home/sijing/project/objective-allocation-of-political-ads/BalancedExposure/Greedy_Correlated/rfw_timer.h
+sys/time.h
+-
+sys/time.h
+-
+sys/resource.h
+-
+sys/time.h
+-
+stdio.h
+-
+time.h
+-
+

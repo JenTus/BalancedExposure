@@ -140,6 +140,14 @@ int reachable_from_vertex(int v, int *GfirstOut, int* Gout, bool* reachable_casc
 void Greedy(int NUM_TO_SELECT){
 	
 	int x,y;
+
+	std::vector<int> defaultblue; // set some default blue nodes to pick if no gain.
+    for (int l = 0; l < 10; ++l) {
+       defaultblue.push_back(l*10 + 10);
+    }
+	int blueind = 0;
+
+    std::vector<int> avoidrepeat; // add to avoid repeating selecting the same nodes
 	
 	Gout = new int [m];
 	GfirstOut = new int [n+2];
@@ -288,11 +296,12 @@ void Greedy(int NUM_TO_SELECT){
 			avg_common = ((double)common_reachable_total)/((double)(i+1));
 			avg_sym_diff = ((double)sym_diff_total)/((double)(i+1));
 			
-			if(main_iterations != NUM_TO_SELECT && (i+1)%100 == 0)cout << "Selecting "<< main_iterations+1<<"-th seed ("<< (i+1)<<"-th simulation): average number covered by a:" <<avg_a_covered <<", average covered by b:" <<avg_b_covered<<", average common covered:"<<avg_common<<", average symmetric difference:"<<avg_sym_diff<<endl;
-			if(main_iterations == NUM_TO_SELECT && (i+1)%100 == 0) cout << "Evaluating solution: average number covered by a:" <<avg_a_covered <<", average covered by b:" <<avg_b_covered<<", average common covered:"<<avg_common<<", average symmetric difference:"<<avg_sym_diff<< ", number of balanced vertices: " << n-avg_sym_diff << endl;
-			if(main_iterations == NUM_TO_SELECT && (i+1) == 1000) cout << "Average cascade size:" << (double) total_cascade_size / (double) (i+1) << endl;
+			//if(main_iterations != NUM_TO_SELECT && (i+1)%100 == 0)cout << "Selecting "<< main_iterations+1<<"-th seed ("<< (i+1)<<"-th simulation): average number covered by a:" <<avg_a_covered <<", average covered by b:" <<avg_b_covered<<", average common covered:"<<avg_common<<", average symmetric difference:"<<avg_sym_diff<<endl;
+			//if(main_iterations == NUM_TO_SELECT && (i+1)%100 == 0) cout << "Evaluating solution: average number covered by a:" <<avg_a_covered <<", average covered by b:" <<avg_b_covered<<", average common covered:"<<avg_common<<", average symmetric difference:"<<avg_sym_diff<< ", number of balanced vertices: " << n-avg_sym_diff << endl;
+			//if(main_iterations == NUM_TO_SELECT && (i+1) == 1000) cout << "Average cascade size:" << (double) total_cascade_size / (double) (i+1) << endl;
 			//cout << "average number covered by a:" <<avg_a_covered <<", average covered by b:" <<avg_b_covered<<", average common covered:"<<avg_common<<", average symmetric difference:"<<avg_sym_diff<<endl;
 		}
+
 		if(main_iterations == NUM_TO_SELECT) break;
 		
 		int best_value_a=0, best_vertex_a, best_value_b=0, best_vertex_b;
@@ -300,18 +309,25 @@ void Greedy(int NUM_TO_SELECT){
 			//cout << "vertex "<< j <<" in team a will balance "<< (double)new_reachable_created_a[j]/(double)K <<" vertices on average"<< endl;
 			//cout << "vertex "<< j <<" in team b will balance "<< (double)new_reachable_created_b[j]/(double)K <<" vertices on average"<< endl;
 			if(new_reachable_created_a[j] > best_value_a){
-				best_value_a = new_reachable_created_a[j];
-				best_vertex_a = j;
-			} 
+			    int flag = 0;
+                for (int i = 0; i < b_seeds.size(); ++i) {
+                    if(j == b_seeds[i]) flag =1;
+                }
+                if(flag != 1){
+                    best_value_a = new_reachable_created_a[j];
+                    best_vertex_a = j;
+                }
+			}
 			if(new_reachable_created_b[j] > best_value_b){
-				best_value_b = new_reachable_created_b[j];
-				best_vertex_b = j;
-			} 
-		}
-		if(best_value_a == 0 && best_value_b == 0) {
-			main_iterations = NUM_TO_SELECT;
-			cout << "any possible selection does not improve the objective function" << endl;
-			continue;
+			    int flag = 0;
+                for (int i = 0; i < a_seeds.size(); ++i) {
+                    if(j == a_seeds[i]) flag =1;
+                }
+                if(flag != 1){
+                    best_value_b = new_reachable_created_b[j];
+                    best_vertex_b = j;
+                }
+			}
 		}
 		if(best_value_a > best_value_b){
 			for (map<string,int>::iterator it = user2ID.begin(); it != user2ID.end(); ++it ){
@@ -323,6 +339,15 @@ void Greedy(int NUM_TO_SELECT){
 			main_iterations+=1;
 		}
 		else{
+            if(best_value_a == 0 && best_value_b == 0) {
+                //main_iterations = NUM_TO_SELECT;
+                // set random number here.
+                cout << "any possible selection does not improve the objective function" << endl;
+                //continue;
+                best_vertex_b = defaultblue[blueind];
+                cout << "main_iterations is: " << best_vertex_b << endl;
+                blueind ++;
+            }
 			for (map<string,int>::iterator it = user2ID.begin(); it != user2ID.end(); ++it ){
 				if (it->second == best_vertex_b){
 					cout << "--> seed  "<< it->first <<"  is selected in the second campaign and balances "<< (double)best_value_b/(double)K <<" vertices on average"<< endl;
@@ -449,7 +474,40 @@ int main(int argc, char *argv[]) {
 	Greedy(NUM_TO_SELECT);
 
     t = timer.getTime();
+
     fprintf (stderr, "totaltime %f\n", t);
+    // store the selected seeds
+    ofstream outputfile;
+    outputfile.open("output.txt");
+
+    outputfile << "red nodes: ";
+
+
+    for (int i = 0; i < a_seeds.size(); ++i) {
+        for (map<string,int>::iterator it = user2ID.begin(); it != user2ID.end(); ++it ){
+            if (it->second == a_seeds[i]){
+                outputfile << it->first << " ";
+            }
+        }
+    }
+
+    outputfile << endl;
+
+    outputfile << "blue nodes: ";
+
+    for (int i = 0; i < b_seeds.size(); ++i) {
+        for (map<string,int>::iterator it = user2ID.begin(); it != user2ID.end(); ++it ){
+            if (it->second == b_seeds[i]){
+                outputfile << it->first << " ";
+            }
+        }
+    }
+
+    outputfile << endl;
+
+    outputfile << "time: " << t << endl;
+
+    outputfile.close();
 
     return 0;
 }

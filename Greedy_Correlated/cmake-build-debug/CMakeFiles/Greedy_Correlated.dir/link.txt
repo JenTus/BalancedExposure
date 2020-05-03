@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/Greedy_Correlated.dir/Greedy_Correlated.cpp.o CMakeFiles/Greedy_Correlated.dir/rfw_timer.cpp.o  -o Greedy_Correlated 
