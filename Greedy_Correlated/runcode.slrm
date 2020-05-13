@@ -13,4 +13,5 @@
 #srun ./Greedy_Correlated ../data/nethept_wc.txt ../data/blank1.txt ../data/blank2.txt out_nethept_wc_30.txt 30
 #$srun ./Greedy_Correlated ../data/nethept_wc.txt ../data/blank1.txt ../data/blank2.txt out_nethept_wc_50.txt 50
 
-../data/flixster_IC_correlated.txt ../data/blank1.txt ../data/blank2.txt 250
+#srun ./Greedy_Correlated ../data/flixster_IC_correlated.txt ../data/blank1.txt ../data/blank2.txt 250
+srun ./Greedy_Correlated ../data/nethept_wc.txt ../data/blank1.txt ../data/blank2.txt 250
