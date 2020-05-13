@@ -44,10 +44,10 @@ RM = /home/sijing/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/193.6015.37/bin
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sijing/project/objective-allocation-of-political-ads/BalancedExposure/Greedy_Correlated
+CMAKE_SOURCE_DIR = /home/sijing/project/BalancedExposure/Greedy_Correlated
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sijing/project/objective-allocation-of-political-ads/BalancedExposure/Greedy_Correlated/cmake-build-debug
+CMAKE_BINARY_DIR = /home/sijing/project/BalancedExposure/Greedy_Correlated/cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -74,14 +74,14 @@ preinstall:
 CMakeFiles/Greedy_Correlated.dir/all:
 	$(MAKE) -f CMakeFiles/Greedy_Correlated.dir/build.make CMakeFiles/Greedy_Correlated.dir/depend
 	$(MAKE) -f CMakeFiles/Greedy_Correlated.dir/build.make CMakeFiles/Greedy_Correlated.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/sijing/project/objective-allocation-of-political-ads/BalancedExposure/Greedy_Correlated/cmake-build-debug/CMakeFiles --progress-num=1,2,3 "Built target Greedy_Correlated"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/sijing/project/BalancedExposure/Greedy_Correlated/cmake-build-debug/CMakeFiles --progress-num=1,2,3 "Built target Greedy_Correlated"
 .PHONY : CMakeFiles/Greedy_Correlated.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Greedy_Correlated.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sijing/project/objective-allocation-of-political-ads/BalancedExposure/Greedy_Correlated/cmake-build-debug/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sijing/project/BalancedExposure/Greedy_Correlated/cmake-build-debug/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Greedy_Correlated.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sijing/project/objective-allocation-of-political-ads/BalancedExposure/Greedy_Correlated/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sijing/project/BalancedExposure/Greedy_Correlated/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/Greedy_Correlated.dir/rule
 
 # Convenience name for target.

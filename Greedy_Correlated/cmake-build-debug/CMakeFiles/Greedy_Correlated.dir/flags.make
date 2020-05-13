@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -std=gnu++14
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/sijing/project/objective-allocation-of-political-ads/BalancedExposure/Greedy_Correlated/. 
+CXX_INCLUDES = -I/home/sijing/project/BalancedExposure/Greedy_Correlated/. 
 

@@ -43,10 +43,10 @@ RM = /home/sijing/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/193.6015.37/bin
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sijing/project/objective-allocation-of-political-ads/BalancedExposure/Greedy_Correlated
+CMAKE_SOURCE_DIR = /home/sijing/project/BalancedExposure/Greedy_Correlated
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sijing/project/objective-allocation-of-political-ads/BalancedExposure/Greedy_Correlated/cmake-build-debug
+CMAKE_BINARY_DIR = /home/sijing/project/BalancedExposure/Greedy_Correlated/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Greedy_Correlated.dir/depend.make
@@ -59,29 +59,29 @@ include CMakeFiles/Greedy_Correlated.dir/flags.make
 
 CMakeFiles/Greedy_Correlated.dir/Greedy_Correlated.cpp.o: CMakeFiles/Greedy_Correlated.dir/flags.make
 CMakeFiles/Greedy_Correlated.dir/Greedy_Correlated.cpp.o: ../Greedy_Correlated.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sijing/project/objective-allocation-of-political-ads/BalancedExposure/Greedy_Correlated/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Greedy_Correlated.dir/Greedy_Correlated.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Greedy_Correlated.dir/Greedy_Correlated.cpp.o -c /home/sijing/project/objective-allocation-of-political-ads/BalancedExposure/Greedy_Correlated/Greedy_Correlated.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sijing/project/BalancedExposure/Greedy_Correlated/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Greedy_Correlated.dir/Greedy_Correlated.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Greedy_Correlated.dir/Greedy_Correlated.cpp.o -c /home/sijing/project/BalancedExposure/Greedy_Correlated/Greedy_Correlated.cpp
 
 CMakeFiles/Greedy_Correlated.dir/Greedy_Correlated.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Greedy_Correlated.dir/Greedy_Correlated.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sijing/project/objective-allocation-of-political-ads/BalancedExposure/Greedy_Correlated/Greedy_Correlated.cpp > CMakeFiles/Greedy_Correlated.dir/Greedy_Correlated.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sijing/project/BalancedExposure/Greedy_Correlated/Greedy_Correlated.cpp > CMakeFiles/Greedy_Correlated.dir/Greedy_Correlated.cpp.i
 
 CMakeFiles/Greedy_Correlated.dir/Greedy_Correlated.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Greedy_Correlated.dir/Greedy_Correlated.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sijing/project/objective-allocation-of-political-ads/BalancedExposure/Greedy_Correlated/Greedy_Correlated.cpp -o CMakeFiles/Greedy_Correlated.dir/Greedy_Correlated.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sijing/project/BalancedExposure/Greedy_Correlated/Greedy_Correlated.cpp -o CMakeFiles/Greedy_Correlated.dir/Greedy_Correlated.cpp.s
 
 CMakeFiles/Greedy_Correlated.dir/rfw_timer.cpp.o: CMakeFiles/Greedy_Correlated.dir/flags.make
 CMakeFiles/Greedy_Correlated.dir/rfw_timer.cpp.o: ../rfw_timer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sijing/project/objective-allocation-of-political-ads/BalancedExposure/Greedy_Correlated/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Greedy_Correlated.dir/rfw_timer.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Greedy_Correlated.dir/rfw_timer.cpp.o -c /home/sijing/project/objective-allocation-of-political-ads/BalancedExposure/Greedy_Correlated/rfw_timer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sijing/project/BalancedExposure/Greedy_Correlated/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Greedy_Correlated.dir/rfw_timer.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Greedy_Correlated.dir/rfw_timer.cpp.o -c /home/sijing/project/BalancedExposure/Greedy_Correlated/rfw_timer.cpp
 
 CMakeFiles/Greedy_Correlated.dir/rfw_timer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Greedy_Correlated.dir/rfw_timer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sijing/project/objective-allocation-of-political-ads/BalancedExposure/Greedy_Correlated/rfw_timer.cpp > CMakeFiles/Greedy_Correlated.dir/rfw_timer.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sijing/project/BalancedExposure/Greedy_Correlated/rfw_timer.cpp > CMakeFiles/Greedy_Correlated.dir/rfw_timer.cpp.i
 
 CMakeFiles/Greedy_Correlated.dir/rfw_timer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Greedy_Correlated.dir/rfw_timer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sijing/project/objective-allocation-of-political-ads/BalancedExposure/Greedy_Correlated/rfw_timer.cpp -o CMakeFiles/Greedy_Correlated.dir/rfw_timer.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sijing/project/BalancedExposure/Greedy_Correlated/rfw_timer.cpp -o CMakeFiles/Greedy_Correlated.dir/rfw_timer.cpp.s
 
 # Object files for target Greedy_Correlated
 Greedy_Correlated_OBJECTS = \
@@ -95,7 +95,7 @@ Greedy_Correlated: CMakeFiles/Greedy_Correlated.dir/Greedy_Correlated.cpp.o
 Greedy_Correlated: CMakeFiles/Greedy_Correlated.dir/rfw_timer.cpp.o
 Greedy_Correlated: CMakeFiles/Greedy_Correlated.dir/build.make
 Greedy_Correlated: CMakeFiles/Greedy_Correlated.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sijing/project/objective-allocation-of-political-ads/BalancedExposure/Greedy_Correlated/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Greedy_Correlated"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sijing/project/BalancedExposure/Greedy_Correlated/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Greedy_Correlated"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Greedy_Correlated.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -108,6 +108,6 @@ CMakeFiles/Greedy_Correlated.dir/clean:
 .PHONY : CMakeFiles/Greedy_Correlated.dir/clean
 
 CMakeFiles/Greedy_Correlated.dir/depend:
-	cd /home/sijing/project/objective-allocation-of-political-ads/BalancedExposure/Greedy_Correlated/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sijing/project/objective-allocation-of-political-ads/BalancedExposure/Greedy_Correlated /home/sijing/project/objective-allocation-of-political-ads/BalancedExposure/Greedy_Correlated /home/sijing/project/objective-allocation-of-political-ads/BalancedExposure/Greedy_Correlated/cmake-build-debug /home/sijing/project/objective-allocation-of-political-ads/BalancedExposure/Greedy_Correlated/cmake-build-debug /home/sijing/project/objective-allocation-of-political-ads/BalancedExposure/Greedy_Correlated/cmake-build-debug/CMakeFiles/Greedy_Correlated.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/sijing/project/BalancedExposure/Greedy_Correlated/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sijing/project/BalancedExposure/Greedy_Correlated /home/sijing/project/BalancedExposure/Greedy_Correlated /home/sijing/project/BalancedExposure/Greedy_Correlated/cmake-build-debug /home/sijing/project/BalancedExposure/Greedy_Correlated/cmake-build-debug /home/sijing/project/BalancedExposure/Greedy_Correlated/cmake-build-debug/CMakeFiles/Greedy_Correlated.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Greedy_Correlated.dir/depend
 

@@ -13,6 +13,7 @@
 #include <sstream>
 #include <vector>
 #include <algorithm>
+#include <string>
 #include "rfw_timer.h"
 
 using namespace std;
@@ -178,12 +179,17 @@ int reachable_from_vertex(int v, int *GfirstOut, int* Gout, bool* reachable_casc
     return num_of_reachable_vertices;
 }
 
-void Greedy(int NUM_TO_SELECT){
-	
+void Greedy(int NUM_TO_SELECT, char* file){
+
+    RFWTimer timer(true);
+    double time_duration;
+
+    srand(time(NULL));
+
 	int x,y;
 
 	std::vector<int> defaultblue; // set some default blue nodes to pick if no gain.
-    for (int l = 0; l < 10; ++l) {
+    for (int l = 0; l < 20; ++l) {
        defaultblue.push_back(l*10 + 10);
     }
 	int blueind = 0;
@@ -343,6 +349,53 @@ void Greedy(int NUM_TO_SELECT){
 			//cout << "average number covered by a:" <<avg_a_covered <<", average covered by b:" <<avg_b_covered<<", average common covered:"<<avg_common<<", average symmetric difference:"<<avg_sym_diff<<endl;
 		}
 
+		if(main_iterations > 0 && main_iterations % 20 == 0){
+		    // set output file
+            string out_file;
+            string str = file;
+            out_file = str + "_" + to_string(main_iterations) + ".txt";
+
+            ofstream outputfile;
+            outputfile.open(out_file);
+
+            outputfile << "red nodes: ";
+
+
+            for (int i = 0; i < a_seeds.size(); ++i) {
+                for (map<string,int>::iterator it = user2ID.begin(); it != user2ID.end(); ++it ){
+                    if (it->second == a_seeds[i]){
+                        outputfile << it->first << " ";
+                    }
+                }
+            }
+
+            outputfile << endl;
+
+            outputfile << "blue nodes: ";
+
+            for (int i = 0; i < b_seeds.size(); ++i) {
+                for (map<string,int>::iterator it = user2ID.begin(); it != user2ID.end(); ++it ){
+                    if (it->second == b_seeds[i]){
+                        outputfile << it->first << " ";
+                    }
+                }
+            }
+
+            outputfile << endl;
+
+            outputfile << "time: " << time_duration << endl;
+
+            float totalmemory = getCurrentMemoryUsage();
+            outputfile << "memory: " << totalmemory << endl;
+
+            fprintf (stderr, "total memory %f\n", totalmemory);
+
+            time_duration = timer.getTime();
+
+            fprintf (stderr, "totaltime %f\n", time_duration);
+            outputfile.close();
+		}
+
 		if(main_iterations == NUM_TO_SELECT) break;
 		
 		int best_value_a=0, best_vertex_a, best_value_b=0, best_vertex_b;
@@ -494,7 +547,7 @@ void readGraph(const char *file,const char *file2, const char *file3) {
 }
 
 int main(int argc, char *argv[]) {
-    if (argc != 6) {
+    if (argc != 5) {
         // add one
         printf("\n usage: %s <input file> <seeds 1 file> <seeds 2 file> <num seeds>\n\n", argv[0]);
         exit(-1);
@@ -503,58 +556,14 @@ int main(int argc, char *argv[]) {
     char *file = argv[1];
     char *file2 = argv[2];
     char *file3 = argv[3];
-    char *fileout = argv[4];
-    int NUM_TO_SELECT = atoi(argv[5]);
+    int NUM_TO_SELECT = atoi(argv[4]);
 
     readGraph(file, file2, file3);
 
-    RFWTimer timer(true);
-    double t;
-
-    srand(time(NULL));
 //     starting_vertex = 1+(int)(rand() % n);
 //     processInput();
-	Greedy(NUM_TO_SELECT);
-
-    t = timer.getTime();
-
-    fprintf (stderr, "totaltime %f\n", t);
+	Greedy(NUM_TO_SELECT, file);
     // store the selected seeds
-    ofstream outputfile;
-    outputfile.open(fileout);
-
-    outputfile << "red nodes: ";
-
-
-    for (int i = 0; i < a_seeds.size(); ++i) {
-        for (map<string,int>::iterator it = user2ID.begin(); it != user2ID.end(); ++it ){
-            if (it->second == a_seeds[i]){
-                outputfile << it->first << " ";
-            }
-        }
-    }
-
-    outputfile << endl;
-
-    outputfile << "blue nodes: ";
-
-    for (int i = 0; i < b_seeds.size(); ++i) {
-        for (map<string,int>::iterator it = user2ID.begin(); it != user2ID.end(); ++it ){
-            if (it->second == b_seeds[i]){
-                outputfile << it->first << " ";
-            }
-        }
-    }
-
-    outputfile << endl;
-
-    outputfile << "time: " << t << endl;
-
-    float totalmemory = getCurrentMemoryUsage();
-    outputfile << "memory: " << totalmemory << endl;
-
-    fprintf (stderr, "total memory %f\n", totalmemory);
-    outputfile.close();
 
     return 0;
 }
