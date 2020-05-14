@@ -1,0 +1,278 @@
+distinct users:28843 number of edges:272786
+END reading graph (../data/flixster_IC_correlated.txt).
+any possible selection does not improve the objective function
+main_iterations is: 10
+--> seed  9  is selected in the second campaign and balances 0 vertices on average
+--> seed  8  is selected in the first campaign and balances 233.258 vertices on average
+--> seed  2468  is selected in the second campaign and balances 464.675 vertices on average
+--> seed  446  is selected in the first campaign and balances 894.286 vertices on average
+--> seed  95  is selected in the second campaign and balances 428.323 vertices on average
+--> seed  8159  is selected in the first campaign and balances 394.794 vertices on average
+--> seed  9264  is selected in the second campaign and balances 307.61 vertices on average
+--> seed  2877  is selected in the first campaign and balances 435.086 vertices on average
+--> seed  7131  is selected in the second campaign and balances 233.559 vertices on average
+--> seed  8585  is selected in the first campaign and balances 338.702 vertices on average
+--> seed  3452  is selected in the first campaign and balances 195.971 vertices on average
+--> seed  1140  is selected in the second campaign and balances 184.346 vertices on average
+--> seed  172  is selected in the first campaign and balances 237.878 vertices on average
+--> seed  3799  is selected in the second campaign and balances 174.858 vertices on average
+--> seed  27909  is selected in the first campaign and balances 204.502 vertices on average
+--> seed  8175  is selected in the first campaign and balances 154.043 vertices on average
+--> seed  4970  is selected in the second campaign and balances 212.127 vertices on average
+--> seed  7859  is selected in the first campaign and balances 169.365 vertices on average
+--> seed  2654  is selected in the second campaign and balances 148.606 vertices on average
+--> seed  2174  is selected in the first campaign and balances 130.024 vertices on average
+total memory 26.945312
+totaltime 529.021892
+--> seed  1282  is selected in the second campaign and balances 114.341 vertices on average
+--> seed  6833  is selected in the first campaign and balances 119.771 vertices on average
+--> seed  11063  is selected in the second campaign and balances 116.557 vertices on average
+--> seed  8292  is selected in the second campaign and balances 104.451 vertices on average
+--> seed  4474  is selected in the first campaign and balances 108.347 vertices on average
+--> seed  14902  is selected in the second campaign and balances 91.705 vertices on average
+--> seed  12243  is selected in the first campaign and balances 98.697 vertices on average
+--> seed  9043  is selected in the second campaign and balances 111.266 vertices on average
+--> seed  5574  is selected in the second campaign and balances 86.372 vertices on average
+--> seed  5774  is selected in the first campaign and balances 85.75 vertices on average
+--> seed  3506  is selected in the second campaign and balances 105.583 vertices on average
+--> seed  605  is selected in the first campaign and balances 87.202 vertices on average
+--> seed  5748  is selected in the second campaign and balances 278.555 vertices on average
+--> seed  850  is selected in the first campaign and balances 74.153 vertices on average
+--> seed  11034  is selected in the second campaign and balances 76.411 vertices on average
+--> seed  5708  is selected in the first campaign and balances 93.548 vertices on average
+--> seed  10545  is selected in the second campaign and balances 70.01 vertices on average
+--> seed  2782  is selected in the first campaign and balances 69.506 vertices on average
+--> seed  13869  is selected in the second campaign and balances 129.858 vertices on average
+--> seed  3130  is selected in the first campaign and balances 64.272 vertices on average
+total memory 26.945312
+totaltime 865.175017
+--> seed  780  is selected in the second campaign and balances 61.037 vertices on average
+--> seed  9941  is selected in the first campaign and balances 58.642 vertices on average
+--> seed  14709  is selected in the second campaign and balances 56.229 vertices on average
+--> seed  23392  is selected in the first campaign and balances 55.801 vertices on average
+--> seed  10189  is selected in the second campaign and balances 73.147 vertices on average
+--> seed  1900  is selected in the second campaign and balances 52.62 vertices on average
+--> seed  5550  is selected in the first campaign and balances 56.617 vertices on average
+--> seed  142  is selected in the second campaign and balances 76.626 vertices on average
+--> seed  2808  is selected in the first campaign and balances 51.825 vertices on average
+--> seed  285  is selected in the second campaign and balances 49.124 vertices on average
+--> seed  5676  is selected in the first campaign and balances 48.968 vertices on average
+--> seed  627  is selected in the second campaign and balances 48.554 vertices on average
+--> seed  3752  is selected in the first campaign and balances 53.476 vertices on average
+--> seed  1385  is selected in the first campaign and balances 46.554 vertices on average
+--> seed  4427  is selected in the second campaign and balances 45.346 vertices on average
+--> seed  2594  is selected in the first campaign and balances 45.037 vertices on average
+--> seed  116  is selected in the second campaign and balances 44.342 vertices on average
+--> seed  6168  is selected in the first campaign and balances 44.842 vertices on average
+--> seed  15019  is selected in the second campaign and balances 54.438 vertices on average
+--> seed  11288  is selected in the first campaign and balances 42.665 vertices on average
+total memory 26.945312
+totaltime 1150.129630
+--> seed  6442  is selected in the second campaign and balances 67.141 vertices on average
+--> seed  11812  is selected in the second campaign and balances 48.123 vertices on average
+--> seed  975  is selected in the first campaign and balances 52.618 vertices on average
+--> seed  128  is selected in the second campaign and balances 39.883 vertices on average
+--> seed  1901  is selected in the first campaign and balances 40.664 vertices on average
+--> seed  1439  is selected in the second campaign and balances 53.568 vertices on average
+--> seed  1596  is selected in the first campaign and balances 39.809 vertices on average
+--> seed  4187  is selected in the first campaign and balances 38.404 vertices on average
+--> seed  7195  is selected in the second campaign and balances 38.437 vertices on average
+--> seed  17147  is selected in the first campaign and balances 50.266 vertices on average
+--> seed  4898  is selected in the second campaign and balances 37.269 vertices on average
+--> seed  8475  is selected in the first campaign and balances 36.453 vertices on average
+--> seed  1393  is selected in the second campaign and balances 35.797 vertices on average
+--> seed  3123  is selected in the first campaign and balances 34.691 vertices on average
+--> seed  671  is selected in the second campaign and balances 34.494 vertices on average
+--> seed  23277  is selected in the first campaign and balances 34.404 vertices on average
+--> seed  2608  is selected in the second campaign and balances 52.561 vertices on average
+--> seed  2260  is selected in the first campaign and balances 33.843 vertices on average
+--> seed  4367  is selected in the second campaign and balances 34.141 vertices on average
+--> seed  1390  is selected in the first campaign and balances 32.709 vertices on average
+total memory 26.945312
+totaltime 1407.770150
+--> seed  3326  is selected in the second campaign and balances 42.707 vertices on average
+--> seed  1008  is selected in the first campaign and balances 32.426 vertices on average
+--> seed  4498  is selected in the second campaign and balances 45.737 vertices on average
+--> seed  7808  is selected in the first campaign and balances 58.65 vertices on average
+--> seed  1839  is selected in the second campaign and balances 36.437 vertices on average
+--> seed  3931  is selected in the second campaign and balances 33.205 vertices on average
+--> seed  1536  is selected in the second campaign and balances 30.93 vertices on average
+--> seed  7774  is selected in the first campaign and balances 37.939 vertices on average
+--> seed  5208  is selected in the second campaign and balances 30.835 vertices on average
+--> seed  192  is selected in the first campaign and balances 30.28 vertices on average
+--> seed  2986  is selected in the second campaign and balances 31.315 vertices on average
+--> seed  13593  is selected in the second campaign and balances 29.156 vertices on average
+--> seed  1511  is selected in the first campaign and balances 29.345 vertices on average
+--> seed  6179  is selected in the second campaign and balances 32.25 vertices on average
+--> seed  7051  is selected in the first campaign and balances 30.253 vertices on average
+--> seed  10998  is selected in the second campaign and balances 28.925 vertices on average
+--> seed  3596  is selected in the first campaign and balances 28.108 vertices on average
+--> seed  1981  is selected in the second campaign and balances 28.083 vertices on average
+--> seed  2995  is selected in the first campaign and balances 38.818 vertices on average
+--> seed  2996  is selected in the second campaign and balances 32.27 vertices on average
+total memory 26.945312
+totaltime 1647.088825
+--> seed  15855  is selected in the first campaign and balances 27.422 vertices on average
+--> seed  3472  is selected in the second campaign and balances 28.699 vertices on average
+--> seed  1507  is selected in the first campaign and balances 27.318 vertices on average
+--> seed  27800  is selected in the second campaign and balances 38.496 vertices on average
+--> seed  8492  is selected in the second campaign and balances 26.624 vertices on average
+--> seed  16396  is selected in the first campaign and balances 27.79 vertices on average
+--> seed  2067  is selected in the second campaign and balances 41.001 vertices on average
+--> seed  15089  is selected in the first campaign and balances 26.728 vertices on average
+--> seed  23367  is selected in the second campaign and balances 25.864 vertices on average
+--> seed  4512  is selected in the first campaign and balances 25.717 vertices on average
+--> seed  5736  is selected in the second campaign and balances 25.556 vertices on average
+--> seed  3400  is selected in the second campaign and balances 24.949 vertices on average
+--> seed  23213  is selected in the first campaign and balances 24.799 vertices on average
+--> seed  1336  is selected in the first campaign and balances 24.493 vertices on average
+--> seed  1918  is selected in the second campaign and balances 34.53 vertices on average
+--> seed  2860  is selected in the first campaign and balances 24.017 vertices on average
+--> seed  817  is selected in the second campaign and balances 23.617 vertices on average
+--> seed  2919  is selected in the first campaign and balances 23.626 vertices on average
+--> seed  3031  is selected in the second campaign and balances 28.138 vertices on average
+--> seed  930  is selected in the first campaign and balances 22.882 vertices on average
+total memory 26.945312
+totaltime 1873.963867
+--> seed  3530  is selected in the second campaign and balances 22.529 vertices on average
+--> seed  13468  is selected in the first campaign and balances 22.52 vertices on average
+--> seed  2383  is selected in the second campaign and balances 22.27 vertices on average
+--> seed  16941  is selected in the first campaign and balances 22.324 vertices on average
+--> seed  785  is selected in the second campaign and balances 21.952 vertices on average
+--> seed  27527  is selected in the first campaign and balances 24.843 vertices on average
+--> seed  2286  is selected in the first campaign and balances 21.922 vertices on average
+--> seed  3335  is selected in the first campaign and balances 21.689 vertices on average
+--> seed  1116  is selected in the second campaign and balances 21.348 vertices on average
+--> seed  11040  is selected in the first campaign and balances 23.77 vertices on average
+--> seed  463  is selected in the second campaign and balances 20.813 vertices on average
+--> seed  24916  is selected in the first campaign and balances 27.52 vertices on average
+--> seed  9379  is selected in the first campaign and balances 20.466 vertices on average
+--> seed  17680  is selected in the second campaign and balances 25.837 vertices on average
+--> seed  32  is selected in the first campaign and balances 20.347 vertices on average
+--> seed  471  is selected in the second campaign and balances 20.218 vertices on average
+--> seed  1418  is selected in the first campaign and balances 25.746 vertices on average
+--> seed  1359  is selected in the first campaign and balances 19.976 vertices on average
+--> seed  8046  is selected in the second campaign and balances 19.8 vertices on average
+--> seed  10202  is selected in the first campaign and balances 19.838 vertices on average
+total memory 26.945312
+totaltime 2091.394491
+--> seed  441  is selected in the second campaign and balances 25.082 vertices on average
+--> seed  4975  is selected in the second campaign and balances 19.642 vertices on average
+--> seed  9224  is selected in the first campaign and balances 19.643 vertices on average
+--> seed  173  is selected in the second campaign and balances 23.708 vertices on average
+--> seed  4366  is selected in the first campaign and balances 20.2 vertices on average
+--> seed  10903  is selected in the second campaign and balances 19.106 vertices on average
+--> seed  766  is selected in the first campaign and balances 19 vertices on average
+--> seed  13171  is selected in the second campaign and balances 19.312 vertices on average
+--> seed  2558  is selected in the first campaign and balances 18.752 vertices on average
+--> seed  9352  is selected in the second campaign and balances 24.24 vertices on average
+--> seed  3169  is selected in the second campaign and balances 18.591 vertices on average
+--> seed  1353  is selected in the second campaign and balances 18.374 vertices on average
+--> seed  4483  is selected in the first campaign and balances 18.246 vertices on average
+--> seed  10534  is selected in the second campaign and balances 18.229 vertices on average
+--> seed  11498  is selected in the first campaign and balances 17.723 vertices on average
+--> seed  4200  is selected in the second campaign and balances 17.732 vertices on average
+--> seed  5653  is selected in the second campaign and balances 17.632 vertices on average
+--> seed  23340  is selected in the first campaign and balances 19.699 vertices on average
+--> seed  7271  is selected in the first campaign and balances 17.483 vertices on average
+--> seed  12296  is selected in the second campaign and balances 17.846 vertices on average
+total memory 26.945312
+totaltime 2301.942832
+--> seed  16233  is selected in the first campaign and balances 17.178 vertices on average
+--> seed  15373  is selected in the second campaign and balances 17.227 vertices on average
+--> seed  1291  is selected in the first campaign and balances 26.13 vertices on average
+--> seed  763  is selected in the second campaign and balances 16.942 vertices on average
+--> seed  1257  is selected in the first campaign and balances 17.038 vertices on average
+--> seed  16032  is selected in the first campaign and balances 16.805 vertices on average
+--> seed  2635  is selected in the second campaign and balances 25.272 vertices on average
+--> seed  6898  is selected in the first campaign and balances 16.586 vertices on average
+--> seed  4425  is selected in the second campaign and balances 17.696 vertices on average
+--> seed  1712  is selected in the first campaign and balances 16.258 vertices on average
+--> seed  993  is selected in the second campaign and balances 19.397 vertices on average
+--> seed  15482  is selected in the first campaign and balances 16.178 vertices on average
+--> seed  1377  is selected in the second campaign and balances 16.021 vertices on average
+--> seed  6963  is selected in the first campaign and balances 15.687 vertices on average
+--> seed  8752  is selected in the second campaign and balances 18.255 vertices on average
+--> seed  5976  is selected in the second campaign and balances 15.545 vertices on average
+--> seed  3094  is selected in the first campaign and balances 16.473 vertices on average
+--> seed  8974  is selected in the second campaign and balances 16.192 vertices on average
+--> seed  3923  is selected in the first campaign and balances 16.005 vertices on average
+--> seed  11745  is selected in the first campaign and balances 15.285 vertices on average
+total memory 26.945312
+totaltime 2505.624397
+--> seed  5473  is selected in the second campaign and balances 24.678 vertices on average
+--> seed  2842  is selected in the first campaign and balances 15.132 vertices on average
+--> seed  5378  is selected in the second campaign and balances 18.478 vertices on average
+--> seed  424  is selected in the second campaign and balances 15.04 vertices on average
+--> seed  7312  is selected in the first campaign and balances 14.837 vertices on average
+--> seed  8583  is selected in the second campaign and balances 14.786 vertices on average
+--> seed  4641  is selected in the first campaign and balances 14.799 vertices on average
+--> seed  1860  is selected in the second campaign and balances 14.732 vertices on average
+--> seed  4219  is selected in the first campaign and balances 14.603 vertices on average
+--> seed  18717  is selected in the second campaign and balances 21.165 vertices on average
+--> seed  17063  is selected in the first campaign and balances 14.469 vertices on average
+--> seed  3643  is selected in the second campaign and balances 14.529 vertices on average
+--> seed  9166  is selected in the second campaign and balances 14.391 vertices on average
+--> seed  10221  is selected in the first campaign and balances 14.379 vertices on average
+--> seed  9677  is selected in the second campaign and balances 14.551 vertices on average
+--> seed  16858  is selected in the first campaign and balances 14.104 vertices on average
+--> seed  943  is selected in the second campaign and balances 13.974 vertices on average
+--> seed  9315  is selected in the first campaign and balances 14.371 vertices on average
+--> seed  4408  is selected in the first campaign and balances 13.851 vertices on average
+--> seed  22989  is selected in the second campaign and balances 22.806 vertices on average
+total memory 26.945312
+totaltime 2704.066978
+--> seed  14465  is selected in the second campaign and balances 17.054 vertices on average
+--> seed  13279  is selected in the second campaign and balances 15.596 vertices on average
+--> seed  2596  is selected in the second campaign and balances 13.763 vertices on average
+--> seed  5749  is selected in the first campaign and balances 13.756 vertices on average
+--> seed  7314  is selected in the second campaign and balances 13.775 vertices on average
+--> seed  7190  is selected in the first campaign and balances 13.644 vertices on average
+--> seed  11898  is selected in the first campaign and balances 13.639 vertices on average
+--> seed  10179  is selected in the second campaign and balances 26.546 vertices on average
+--> seed  8473  is selected in the second campaign and balances 13.605 vertices on average
+--> seed  11663  is selected in the first campaign and balances 13.501 vertices on average
+--> seed  5096  is selected in the second campaign and balances 13.38 vertices on average
+--> seed  2999  is selected in the first campaign and balances 17.549 vertices on average
+--> seed  15897  is selected in the second campaign and balances 13.189 vertices on average
+--> seed  6755  is selected in the first campaign and balances 13.196 vertices on average
+--> seed  15807  is selected in the second campaign and balances 14.477 vertices on average
+--> seed  287  is selected in the second campaign and balances 13.065 vertices on average
+--> seed  11200  is selected in the first campaign and balances 13.063 vertices on average
+--> seed  4458  is selected in the first campaign and balances 12.786 vertices on average
+--> seed  860  is selected in the second campaign and balances 12.643 vertices on average
+--> seed  11504  is selected in the first campaign and balances 14.851 vertices on average
+total memory 26.945312
+totaltime 2899.090848
+--> seed  13077  is selected in the first campaign and balances 12.599 vertices on average
+--> seed  12891  is selected in the second campaign and balances 18.806 vertices on average
+--> seed  5675  is selected in the first campaign and balances 12.523 vertices on average
+--> seed  19090  is selected in the second campaign and balances 12.936 vertices on average
+--> seed  2681  is selected in the first campaign and balances 12.544 vertices on average
+--> seed  7551  is selected in the first campaign and balances 12.435 vertices on average
+--> seed  2446  is selected in the second campaign and balances 12.41 vertices on average
+--> seed  1384  is selected in the first campaign and balances 12.396 vertices on average
+--> seed  6562  is selected in the first campaign and balances 12.356 vertices on average
+--> seed  762  is selected in the second campaign and balances 12.347 vertices on average
+--> seed  12414  is selected in the second campaign and balances 12.283 vertices on average
+--> seed  16292  is selected in the second campaign and balances 12.181 vertices on average
+--> seed  15188  is selected in the first campaign and balances 12.116 vertices on average
+--> seed  2396  is selected in the second campaign and balances 12.11 vertices on average
+--> seed  7865  is selected in the first campaign and balances 11.938 vertices on average
+--> seed  5698  is selected in the second campaign and balances 11.818 vertices on average
+--> seed  11011  is selected in the first campaign and balances 18.624 vertices on average
+--> seed  4926  is selected in the first campaign and balances 11.784 vertices on average
+--> seed  2020  is selected in the second campaign and balances 11.79 vertices on average
+--> seed  10380  is selected in the first campaign and balances 11.737 vertices on average
+total memory 26.945312
+totaltime 3089.444618
+--> seed  5164  is selected in the second campaign and balances 11.718 vertices on average
+--> seed  980  is selected in the first campaign and balances 11.604 vertices on average
+--> seed  12324  is selected in the second campaign and balances 18.882 vertices on average
+--> seed  15861  is selected in the second campaign and balances 12.125 vertices on average
+--> seed  139  is selected in the first campaign and balances 11.527 vertices on average
+--> seed  1381  is selected in the second campaign and balances 11.602 vertices on average
+--> seed  2125  is selected in the first campaign and balances 15.471 vertices on average
+--> seed  1740  is selected in the second campaign and balances 11.418 vertices on average
+--> seed  8016  is selected in the first campaign and balances 15.085 vertices on average
+--> seed  8456  is selected in the first campaign and balances 11.319 vertices on average
