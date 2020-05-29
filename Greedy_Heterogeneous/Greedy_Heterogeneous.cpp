@@ -22,14 +22,14 @@ using namespace std;
 #define K             1000
 //#define NUM_TO_SELECT 5
 char line[MAXLINE]; /* stores input line */
-/* Get the process ID of the calling process.  */
 
 long int rand_seeds[K];
 
 
 map<string, int> user2ID;
 vector<int> InputEdges;
-vector<double> EdgeProb;
+vector<double> EdgeProb_a;
+vector<double> EdgeProb_b;
 vector<int> a_seeds;
 vector<int> b_seeds;
 
@@ -38,8 +38,10 @@ int *temp_stack;
 int *temp_stack_2;
 
 int n, m; /* number of nodes, arcs */
-int *Gout, *GfirstOut, *GlastOut; // adjacency list
-int *Gin_full, *GfirstIn_full, *GlastIn_full; // reverce adjacency list
+int *Gout_full, *GfirstOut_full, *GlastOut_full; // adjacency list
+int *Gin_full, *GfirstIn_full, *GlastIn_full; // adjacency list
+int *Gout_a, *GfirstOut_a, *GlastOut_a; // adjacency list
+int *Gout_b, *GfirstOut_b, *GlastOut_b; // adjacency list
 
 inline string intToStr(int i) {
     stringstream sx;
@@ -79,12 +81,13 @@ float getCurrentMemoryUsage() { //megabyte verii
     return mem/1024; // in MB
 }
 
+
 int reachable_from_initial_seeds(int *GfirstOut, int* Gout, bool* reachable_cascade, bool* reachable, vector<int> &seeds){
     
     int queueHead, queueTail, selected, temp;
     int num_of_reachable_vertices = 0;
   
-    for(int i=1; i<= n; i++) reachable[i] = reachable_cascade[i] = false;
+    for(int i=0; i<= n; i++) reachable[i] = reachable_cascade[i] = false;
     
     //printf("seeds:%d\n",(int)seeds.size());
     for(unsigned i=0; i< seeds.size(); i++){
@@ -179,30 +182,27 @@ int reachable_from_vertex(int v, int *GfirstOut, int* Gout, bool* reachable_casc
     return num_of_reachable_vertices;
 }
 
-void Greedy(int NUM_TO_SELECT, char* file){
-
-    RFWTimer timer(true);
-    double time_duration;
-
-    srand(time(NULL));
-
-	int x,y;
-
-	std::vector<int> defaultblue; // set some default blue nodes to pick if no gain.
-    for (int l = 0; l < 20; ++l) {
-       defaultblue.push_back(l*10 + 10);
-    }
-	int blueind = 0;
-
-    std::vector<int> avoidrepeat; // add to avoid repeating selecting the same nodes
+void Greedy(int NUM_TO_SELECT){
 	
-	Gout = new int [m];
-	GfirstOut = new int [n+2];
-	GlastOut = new int [n+2];
+	int x,y;
+	
+	
+	//Gout_full = new int [m];
+	//GfirstOut_full = new int [n+2];
+	//GlastOut_full = new int [n+2];
 	
 	Gin_full = new int [m];
 	GfirstIn_full = new int [n+2];
 	GlastIn_full = new int [n+2];
+	
+	Gout_a = new int [m];
+	GfirstOut_a = new int [n+2];
+	GlastOut_a = new int [n+2];
+	
+	Gout_b = new int [m];
+	GfirstOut_b = new int [n+2];
+	GlastOut_b = new int [n+2];
+	
 	//Gin  = new int [m];
 	//GfirstIn  = new int [n+2];
 	//GlastIn = new int [n+2];
@@ -215,27 +215,34 @@ void Greedy(int NUM_TO_SELECT, char* file){
 	}
     
 	vector<int> edges_sampled;
-	bool *reachable_a = new bool [n+1];
 	bool *reachable_cascade_a = new bool [n+1];
-	bool *reachable_b = new bool [n+1];
+	bool *reachable_a = new bool [n+1];
 	bool *reachable_cascade_b = new bool [n+1];
+	bool *reachable_b = new bool [n+1];
 	queue = new int [n+1];
-	temp_stack = new int [n+1];	
+	temp_stack = new int [n+1];
 	temp_stack_2 = new int [n+1];
 	int *new_reachable_created_a = new int [n+1];
 	int *new_reachable_created_b = new int [n+1];
 	
-	GlastIn_full[0] = 0;
 	
-	for (int j = 0; j <= n+1; j++)GfirstIn_full[j] = 0;
+	/*GlastOut_full[0] = */GlastIn_full[0] = 0;
+	
+	for (int j = 0; j <= n+1; j++){
+		/*GfirstOut_full[j] = */GfirstIn_full[j] = 0;
+	}
 	
 	for (unsigned j=0; j<InputEdges.size(); j+=2){
 		x = InputEdges.at(j);
 		y = InputEdges.at(j+1);
+		//GfirstOut_full[x+1]++;
 		GfirstIn_full[y+1]++;
+		//printf("(%d,%d) exists\n",x,y);
 	}
 	
 	for (int k = 1; k <= n+1; k++) {
+		//GfirstOut_full[k] += GfirstOut_full[k-1]; // the +1 is to be able to add edges in the recidual
+		//GlastOut_full[k] = GfirstOut_full[k];
 		GfirstIn_full[k] += GfirstIn_full[k-1];
 		GlastIn_full[k] = GfirstIn_full[k];
 	}
@@ -243,6 +250,7 @@ void Greedy(int NUM_TO_SELECT, char* file){
 	for (unsigned j=0; j<InputEdges.size(); j+=2){
 		x = InputEdges.at(j);
 		y = InputEdges.at(j+1);
+		//Gout_full[GlastOut_full[x]++] = y;
 		Gin_full[GlastIn_full[y]++] = x;
 	}
 	
@@ -251,17 +259,19 @@ void Greedy(int NUM_TO_SELECT, char* file){
 	while(main_iterations < NUM_TO_SELECT+1){
 		for(int i = 0; i<=n; i++) new_reachable_created_a[i] = new_reachable_created_b[i] = 0;
 		
-		int total_cascade_size = 0;
+		int total_cascade_size_a = 0;
+		int total_cascade_size_b = 0;
 		a_reachable_total = b_reachable_total = common_reachable_total = sym_diff_total =0;
 		for (int i=0; i<K; i++){
 			srand(rand_seeds[i]);
-			int counter = 0;
+			int counter_a = 0;
+			int counter_b = 0;
 			
 			edges_sampled.clear();
 	      
 			for (unsigned j=0; j<InputEdges.size(); j+=2){
-				if((((double)rand())/((double)(RAND_MAX)) ) < EdgeProb.at(j/2)){
-					counter++;
+				if((((double)rand())/((double)(RAND_MAX)) ) < EdgeProb_a.at(j/2)){
+					counter_a++;
 					edges_sampled.push_back(InputEdges.at(j));
 					edges_sampled.push_back(InputEdges.at(j+1));
 					//printf("(%d,%d) exists\n",InputEdges.at(j),InputEdges.at(j+1));
@@ -269,42 +279,84 @@ void Greedy(int NUM_TO_SELECT, char* file){
 				//x = InputEdges.at(i);
 				//y = InputEdges.at(i+1);
 			}
-			total_cascade_size+=counter;
 			
+			
+			// Constructs the reverse graph...
 			//printf("\n\n");
-			GlastOut[0] = 0;//GlastIn[0] = 0;
+			GlastOut_a[0] = 0;//GlastIn[0] = 0;
 			//GlastOut[0] = GlastIn[0] = 0;
 			
 			for (int j = 0; j <= n+1; j++){
-				GfirstOut[j] = 0;//GfirstIn[j] = 0;
-				//GfirstOut[j] = GfirstIn[j] = 0;
+				GfirstOut_a[j] = 0;
 			}
 			
 			for (unsigned j=0; j<edges_sampled.size(); j+=2){
 				y = edges_sampled.at(j);
 				x = edges_sampled.at(j+1);
-				GfirstOut[x+1]++;
-				//GfirstIn[y+1]++;
-				//printf("(%d,%d) exists\n",x,y);
+				GfirstOut_a[x+1]++;
 			}
 			
 			for (int k = 1; k <= n+1; k++) {
-				GfirstOut[k] += GfirstOut[k-1]; // the +1 is to be able to add edges in the recidual
-				GlastOut[k] = GfirstOut[k];
-				//GfirstIn[k] += GfirstIn[k-1];
-				//GlastIn[k] = GfirstIn[k];
+				GfirstOut_a[k] += GfirstOut_a[k-1]; // the +1 is to be able to add edges in the recidual
+				GlastOut_a[k] = GfirstOut_a[k];
 			}
 			
 			for (unsigned j=0; j<edges_sampled.size(); j+=2){
 				y = edges_sampled.at(j);
 				x = edges_sampled.at(j+1);
-				Gout[GlastOut[x]++] = y;
+				Gout_a[GlastOut_a[x]++] = y;
+			}
+	      
+			for (int j = 0; j <= n+1; j++) reachable_a[j] = reachable_cascade_a[j] = 0;
+		  	int reachable_num_a = reachable_from_initial_seeds(GfirstOut_a, Gout_a, reachable_cascade_a, reachable_a, a_seeds);
+		
+	
+			// =========== do the same for the cascades from the second campaign
+		
+			edges_sampled.clear();
+	      
+			for (unsigned j=0; j<InputEdges.size(); j+=2){
+				if((((double)rand())/((double)(RAND_MAX)) ) < EdgeProb_b.at(j/2)){
+					counter_b++;
+					edges_sampled.push_back(InputEdges.at(j));
+					edges_sampled.push_back(InputEdges.at(j+1));
+				}
+				//x = InputEdges.at(i);
+				//y = InputEdges.at(i+1);
+			}
+			
+			GlastOut_b[0] = 0;//GlastIn[0] = 0;
+			//GlastOut[0] = GlastIn[0] = 0;
+			
+			for (int j = 0; j <= n+1; j++){
+				GfirstOut_b[j] = 0;
+			}
+			
+			for (unsigned j=0; j<edges_sampled.size(); j+=2){
+				y = edges_sampled.at(j);
+				x = edges_sampled.at(j+1);
+				GfirstOut_b[x+1]++;
+				//GfirstIn[y+1]++;
+			}
+			
+			for (int k = 1; k <= n+1; k++) {
+				GfirstOut_b[k] += GfirstOut_b[k-1]; // the +1 is to be able to add edges in the recidual
+				GlastOut_b[k] = GfirstOut_b[k];
+				//GfirstIn[k] += GfirstIn[k-1];
+				//GlastIn[k] = GfirstIn[k];
+			}
+	
+			for(unsigned j=0; j<edges_sampled.size(); j+=2){
+				y = edges_sampled.at(j);
+				x = edges_sampled.at(j+1);
+				Gout_b[GlastOut_b[x]++] = y;
 				//Gin[GlastIn[y]++] = x;
 			}
 	      
-			int reachable_num_a = reachable_from_initial_seeds(GfirstOut, Gout, reachable_cascade_a, reachable_a, a_seeds);
-			int reachable_num_b = reachable_from_initial_seeds(GfirstOut, Gout, reachable_cascade_b, reachable_b, b_seeds);
-	      
+			
+			for (int j = 0; j <= n+1; j++) reachable_b[j] = reachable_cascade_b[j] = 0;
+			int reachable_num_b = reachable_from_initial_seeds(GfirstOut_b, Gout_b, reachable_cascade_b, reachable_b, b_seeds);
+			
 			int common_reachable = 0;
 			for(int j = 1; j<=n ;j++){
 				if(reachable_a[j]){
@@ -322,20 +374,20 @@ void Greedy(int NUM_TO_SELECT, char* file){
 				}
 			}
 			
-			int reachable_num, max_reachable_num = 0, max_reachable_vertex;
+			int reachable_num;
 			for(int j = 1; j<=n ;j++){
 				if(!reachable_cascade_a[j]){
-					reachable_num = reachable_from_vertex(j, GfirstOut, Gout, reachable_cascade_a, reachable_a, reachable_b);
+					reachable_num = reachable_from_vertex(j, GfirstOut_a, Gout_a, reachable_cascade_a, reachable_a, reachable_b);
 					new_reachable_created_a[j]+= reachable_num; 
 					//cout << "vertex "<< j <<" in a balances " << reachable_num << " vertices" << endl;
 				}
 				if(!reachable_cascade_b[j]){
-					reachable_num = reachable_from_vertex(j, GfirstOut, Gout, reachable_cascade_b, reachable_b, reachable_a);
+					reachable_num = reachable_from_vertex(j, GfirstOut_b, Gout_b, reachable_cascade_b, reachable_b, reachable_a);
 					new_reachable_created_b[j]+= reachable_num;
 					//cout << "vertex "<< j <<" in b balances " << reachable_num << "vertices" << endl;
 				}
 			}
-			//cout << i <<"-th sampling contains " << counter << " edges ("<< reachable_num_a <<" reachable vertices from a and "<< reachable_num_b <<" reachable vertices from b) edges , common reachable: "<<common_reachable<<" , respectively "<< endl;
+			//cout << i <<"-th sampling contains " << counter_a << " ("<< reachable_num_a <<" reachable vertices) and " << counter_b << " ("<< reachable_num_b <<" reachable vertices) edges , common reachable: "<<common_reachable<<" , respectively "<< endl;
 			//cout << "best vertex reaches " << max_reachable_num << "vertices" << endl;
 			
 			avg_a_covered = ((double)a_reachable_total)/((double)(i+1));
@@ -343,85 +395,32 @@ void Greedy(int NUM_TO_SELECT, char* file){
 			avg_common = ((double)common_reachable_total)/((double)(i+1));
 			avg_sym_diff = ((double)sym_diff_total)/((double)(i+1));
 			
-			//if(main_iterations != NUM_TO_SELECT && (i+1)%100 == 0)cout << "Selecting "<< main_iterations+1<<"-th seed ("<< (i+1)<<"-th simulation): average number covered by a:" <<avg_a_covered <<", average covered by b:" <<avg_b_covered<<", average common covered:"<<avg_common<<", average symmetric difference:"<<avg_sym_diff<<endl;
-			//if(main_iterations == NUM_TO_SELECT && (i+1)%100 == 0) cout << "Evaluating solution: average number covered by a:" <<avg_a_covered <<", average covered by b:" <<avg_b_covered<<", average common covered:"<<avg_common<<", average symmetric difference:"<<avg_sym_diff<< ", number of balanced vertices: " << n-avg_sym_diff << endl;
-			//if(main_iterations == NUM_TO_SELECT && (i+1) == 1000) cout << "Average cascade size:" << (double) total_cascade_size / (double) (i+1) << endl;
-			//cout << "average number covered by a:" <<avg_a_covered <<", average covered by b:" <<avg_b_covered<<", average common covered:"<<avg_common<<", average symmetric difference:"<<avg_sym_diff<<endl;
+			total_cascade_size_a += counter_a;
+			total_cascade_size_b += counter_b;
+			if(main_iterations != NUM_TO_SELECT && (i+1)%100 == 0)cout << "Selecting "<< main_iterations+1<<"-th seed ("<< (i+1)<<"-th simulation): average number covered by a:" <<avg_a_covered <<", average covered by b:" <<avg_b_covered<<", average common covered:"<<avg_common<<", average symmetric difference:"<<avg_sym_diff<<endl;
+			if(main_iterations == NUM_TO_SELECT && (i+1)%100 == 0) cout << "Evaluating solution: average number covered by a:" <<avg_a_covered <<", average covered by b:" <<avg_b_covered<<", average common covered:"<<avg_common<<", average symmetric difference:"<<avg_sym_diff<< ", number of balanced vertices: " << n-avg_sym_diff << endl;
+			if(main_iterations == NUM_TO_SELECT && (i+1) == 1000) cout << "Average cascade a size: " << (double)total_cascade_size_a / (double) (i+1) <<", average cascade b size: " << (double)total_cascade_size_b / (double) (i+1) << endl;
 		}
-
-		if(main_iterations > 0 && main_iterations % 20 == 0){
-		    // set output file
-            string out_file;
-            string str = file;
-            out_file = str + "_" + to_string(main_iterations) + ".txt";
-
-            ofstream outputfile;
-            outputfile.open(out_file);
-
-            outputfile << "red nodes: ";
-
-
-            for (int i = 0; i < a_seeds.size(); ++i) {
-                for (map<string,int>::iterator it = user2ID.begin(); it != user2ID.end(); ++it ){
-                    if (it->second == a_seeds[i]){
-                        outputfile << it->first << " ";
-                    }
-                }
-            }
-
-            outputfile << endl;
-
-            outputfile << "blue nodes: ";
-
-            for (int i = 0; i < b_seeds.size(); ++i) {
-                for (map<string,int>::iterator it = user2ID.begin(); it != user2ID.end(); ++it ){
-                    if (it->second == b_seeds[i]){
-                        outputfile << it->first << " ";
-                    }
-                }
-            }
-
-            outputfile << endl;
-
-            outputfile << "time: " << time_duration << endl;
-
-            float totalmemory = getCurrentMemoryUsage();
-            outputfile << "memory: " << totalmemory << endl;
-
-            fprintf (stderr, "total memory %f\n", totalmemory);
-
-            time_duration = timer.getTime();
-
-            fprintf (stderr, "totaltime %f\n", time_duration);
-            outputfile.close();
-		}
-
-		if(main_iterations == NUM_TO_SELECT) break;
 		
+		if(main_iterations == NUM_TO_SELECT) break;
 		int best_value_a=0, best_vertex_a, best_value_b=0, best_vertex_b;
 		for(int j = 1; j<=n ;j++){
 			//cout << "vertex "<< j <<" in team a will balance "<< (double)new_reachable_created_a[j]/(double)K <<" vertices on average"<< endl;
 			//cout << "vertex "<< j <<" in team b will balance "<< (double)new_reachable_created_b[j]/(double)K <<" vertices on average"<< endl;
 			if(new_reachable_created_a[j] > best_value_a){
-			    int flag = 0;
-                for (int i = 0; i < b_seeds.size(); ++i) {
-                    if(j == b_seeds[i]) flag =1;
-                }
-                if(flag != 1){
-                    best_value_a = new_reachable_created_a[j];
-                    best_vertex_a = j;
-                }
-			}
+				best_value_a = new_reachable_created_a[j];
+				best_vertex_a = j;
+			} 
 			if(new_reachable_created_b[j] > best_value_b){
-			    int flag = 0;
-                for (int i = 0; i < a_seeds.size(); ++i) {
-                    if(j == a_seeds[i]) flag =1;
-                }
-                if(flag != 1){
-                    best_value_b = new_reachable_created_b[j];
-                    best_vertex_b = j;
-                }
-			}
+				best_value_b = new_reachable_created_b[j];
+				best_vertex_b = j;
+			} 
+		}
+		
+		if(best_value_a == 0 && best_value_b == 0) {
+			cout << "any possible selection does not improve the objective function" << endl;
+			main_iterations = NUM_TO_SELECT;
+			continue;
 		}
 		if(best_value_a > best_value_b){
 			for (map<string,int>::iterator it = user2ID.begin(); it != user2ID.end(); ++it ){
@@ -433,18 +432,9 @@ void Greedy(int NUM_TO_SELECT, char* file){
 			main_iterations+=1;
 		}
 		else{
-            if(best_value_a == 0 && best_value_b == 0) {
-                //main_iterations = NUM_TO_SELECT;
-                // set random number here.
-                cout << "any possible selection does not improve the objective function" << endl;
-                //continue;
-                best_vertex_b = defaultblue[blueind];
-                cout << "main_iterations is: " << best_vertex_b << endl;
-                blueind ++;
-            }
 			for (map<string,int>::iterator it = user2ID.begin(); it != user2ID.end(); ++it ){
 				if (it->second == best_vertex_b){
-					cout << "--> seed  "<< it->first <<"  is selected in the second campaign and balances "<< (double)best_value_b/(double)K <<" vertices on average"<< endl;
+					cout << "--> seed  "<< it->first <<"  is selected in the second campaign and balances "<< (double)best_value_a/(double)K <<" vertices on average"<< endl;
 				}
 			}
 			//cout << "vertex "<< best_vertex_b <<" in team b will balance "<< (double)best_value_b/(double)K <<" vertices on average"<< endl;
@@ -467,13 +457,12 @@ void readGraph(const char *file,const char *file2, const char *file3) {
     int count_edges = 0;
     int count_vertices= 1;
     string user_a, user_b;
-    long double prob;
-    long double prob2;
+    long double prob_a,prob_b;
     
     map<string,int>::iterator it;
     
     ifstream infile(file);
-	while (infile >> user_a >> user_b >> prob >> prob2){
+	while (infile >> user_a >> user_b >> prob_a >> prob_b){
 		it = user2ID.find(user_a);
 		if(it != user2ID.end()) x = it->second;
 		else{
@@ -493,7 +482,8 @@ void readGraph(const char *file,const char *file2, const char *file3) {
 		InputEdges.push_back(x);
 		InputEdges.push_back(y);
 		//printf("(%d,%d)\n",x,y);
-		EdgeProb.push_back(prob);
+		EdgeProb_a.push_back(prob_a);
+		EdgeProb_b.push_back(prob_b);
 		// process pair (a,b)
 	}
 	n = count_vertices-1;
@@ -549,8 +539,7 @@ void readGraph(const char *file,const char *file2, const char *file3) {
 
 int main(int argc, char *argv[]) {
     if (argc != 5) {
-        // add one
-        printf("\n usage: %s <input file> <seeds 1 file> <seeds 2 file> <num seeds>\n\n", argv[0]);
+        printf("\n usage: %s <input file> <seeds 1 file> <seeds 2 file><numseeds>\n\n", argv[0]);
         exit(-1);
     }
 
@@ -561,10 +550,16 @@ int main(int argc, char *argv[]) {
 
     readGraph(file, file2, file3);
 
+    RFWTimer timer(true);
+    double t;
+
+    srand(time(NULL));
 //     starting_vertex = 1+(int)(rand() % n);
 //     processInput();
-	Greedy(NUM_TO_SELECT, file);
-    // store the selected seeds
+	Greedy(NUM_TO_SELECT);
+
+    t = timer.getTime();
+    fprintf (stderr, "totaltime %f\n", t);
 
     return 0;
 }

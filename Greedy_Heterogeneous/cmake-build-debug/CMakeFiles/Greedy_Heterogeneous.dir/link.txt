@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/Greedy_Heterogeneous.dir/Greedy_Heterogeneous.cpp.o CMakeFiles/Greedy_Heterogeneous.dir/rfw_timer.cpp.o  -o Greedy_Heterogeneous 
