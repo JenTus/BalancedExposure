@@ -207,8 +207,7 @@ void Greedy(int NUM_TO_SELECT, char* file){
 	//GfirstIn  = new int [n+2];
 	//GlastIn = new int [n+2];
 	
-	srand(time(NULL));
-    
+
 	for (int i=0; i<K; i++){
 		rand_seeds[i] = rand();
 		//cout << i <<"-th random number:" << rand_seeds[i]<< endl;
@@ -349,7 +348,7 @@ void Greedy(int NUM_TO_SELECT, char* file){
 			//cout << "average number covered by a:" <<avg_a_covered <<", average covered by b:" <<avg_b_covered<<", average common covered:"<<avg_common<<", average symmetric difference:"<<avg_sym_diff<<endl;
 		}
 
-		if(main_iterations > 0 && main_iterations % 20 == 0){
+		if(main_iterations > 0 && main_iterations % 50 == 0){
 		    // set output file
             string out_file;
             string str = file;
@@ -383,14 +382,14 @@ void Greedy(int NUM_TO_SELECT, char* file){
 
             outputfile << endl;
 
-            outputfile << "time: " << time_duration << endl;
-
             float totalmemory = getCurrentMemoryUsage();
             outputfile << "memory: " << totalmemory << endl;
 
             fprintf (stderr, "total memory %f\n", totalmemory);
 
             time_duration = timer.getTime();
+
+            outputfile << "time: " << time_duration << endl;
 
             fprintf (stderr, "totaltime %f\n", time_duration);
             outputfile.close();
