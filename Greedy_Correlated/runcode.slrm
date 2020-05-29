@@ -2,44 +2,44 @@
 #SBATCH --time=0-15:00:00    # 2 hour
 #SBATCH --mem-per-cpu=50000    # 5000MB of memory
 
-srun ./Greedy_Correlated ../data/flixster_wc.txt ../data/blank1.txt ../data/blank2.txt out_flixster_wc_20.txt 20 
-srun ./Greedy_Correlated ../data/flixster_wc.txt ../data/blank1.txt ../data/blank2.txt out_flixster_wc_60.txt 60 
-srun ./Greedy_Correlated ../data/flixster_wc.txt ../data/blank1.txt ../data/blank2.txt out_flixster_wc_120.txt 120 
-srun ./Greedy_Correlated ../data/flixster_wc.txt ../data/blank1.txt ../data/blank2.txt out_flixster_wc_200.txt 200 
+srun ./Greedy_Correlated ../data/flixster_wc.txt ../data/blank1.txt ../data/blank2.txt 20
+srun ./Greedy_Correlated ../data/flixster_wc.txt ../data/blank1.txt ../data/blank2.txt 60
+srun ./Greedy_Correlated ../data/flixster_wc.txt ../data/blank1.txt ../data/blank2.txt 120
+srun ./Greedy_Correlated ../data/flixster_wc.txt ../data/blank1.txt ../data/blank2.txt 200
 
-srun ./Greedy_Correlated ../data/flixster_IC_correlated.txt ../data/blank1.txt ../data/blank2.txt out_flixster_IC_correlated_20.txt 20 
-srun ./Greedy_Correlated ../data/flixster_IC_correlated.txt ../data/blank1.txt ../data/blank2.txt out_flixster_IC_correlated_60.txt 60 
-srun ./Greedy_Correlated ../data/flixster_IC_correlated.txt ../data/blank1.txt ../data/blank2.txt out_flixster_IC_correlated_120.txt 120 
-srun ./Greedy_Correlated ../data/flixster_IC_correlated.txt ../data/blank1.txt ../data/blank2.txt out_flixster_IC_correlated_200.txt 200 
+srun ./Greedy_Correlated ../data/flixster_IC_correlated.txt ../data/blank1.txt ../data/blank2.txt 20
+srun ./Greedy_Correlated ../data/flixster_IC_correlated.txt ../data/blank1.txt ../data/blank2.txt 60
+srun ./Greedy_Correlated ../data/flixster_IC_correlated.txt ../data/blank1.txt ../data/blank2.txt 120
+srun ./Greedy_Correlated ../data/flixster_IC_correlated.txt ../data/blank1.txt ../data/blank2.txt 200
 
-srun ./Greedy_Correlated ../data/nethept_wc.txt ../data/blank1.txt ../data/blank2.txt out_nethept_wc_20.txt 20 
-srun ./Greedy_Correlated ../data/nethept_wc.txt ../data/blank1.txt ../data/blank2.txt out_nethept_wc_60.txt 60 
-srun ./Greedy_Correlated ../data/nethept_wc.txt ../data/blank1.txt ../data/blank2.txt out_nethept_wc_120.txt 120 
-srun ./Greedy_Correlated ../data/nethept_wc.txt ../data/blank1.txt ../data/blank2.txt out_nethept_wc_200.txt 200 
+srun ./Greedy_Correlated ../data/nethept_wc.txt ../data/blank1.txt ../data/blank2.txt 20
+srun ./Greedy_Correlated ../data/nethept_wc.txt ../data/blank1.txt ../data/blank2.txt 60
+srun ./Greedy_Correlated ../data/nethept_wc.txt ../data/blank1.txt ../data/blank2.txt 120
+srun ./Greedy_Correlated ../data/nethept_wc.txt ../data/blank1.txt ../data/blank2.txt 200
 
-srun ./Greedy_Correlated ../data/nethept_r_hom.txt ../data/blank1.txt ../data/blank2.txt out_nethept_r_hom_20.txt 20 
-srun ./Greedy_Correlated ../data/nethept_r_hom.txt ../data/blank1.txt ../data/blank2.txt out_nethept_r_hom_60.txt 60 
-srun ./Greedy_Correlated ../data/nethept_r_hom.txt ../data/blank1.txt ../data/blank2.txt out_nethept_r_hom_120.txt 120 
-srun ./Greedy_Correlated ../data/nethept_r_hom.txt ../data/blank1.txt ../data/blank2.txt out_nethept_r_hom_200.txt 200 
+srun ./Greedy_Correlated ../data/nethept_r_hom.txt ../data/blank1.txt ../data/blank2.txt 20
+srun ./Greedy_Correlated ../data/nethept_r_hom.txt ../data/blank1.txt ../data/blank2.txt 60
+srun ./Greedy_Correlated ../data/nethept_r_hom.txt ../data/blank1.txt ../data/blank2.txt 120
+srun ./Greedy_Correlated ../data/nethept_r_hom.txt ../data/blank1.txt ../data/blank2.txt 200
 
-srun ./Greedy_Correlated ../data/wikivote_wc.txt ../data/blank1.txt ../data/blank2.txt out_wikivote_wc_20.txt 20 
-srun ./Greedy_Correlated ../data/wikivote_wc.txt ../data/blank1.txt ../data/blank2.txt out_wikivote_wc_60.txt 60 
-srun ./Greedy_Correlated ../data/wikivote_wc.txt ../data/blank1.txt ../data/blank2.txt out_wikivote_wc_120.txt 120 
-srun ./Greedy_Correlated ../data/wikivote_wc.txt ../data/blank1.txt ../data/blank2.txt out_wikivote_wc_200.txt 200 
+srun ./Greedy_Correlated ../data/wikivote_wc.txt ../data/blank1.txt ../data/blank2.txt 20
+srun ./Greedy_Correlated ../data/wikivote_wc.txt ../data/blank1.txt ../data/blank2.txt 60
+srun ./Greedy_Correlated ../data/wikivote_wc.txt ../data/blank1.txt ../data/blank2.txt 120
+srun ./Greedy_Correlated ../data/wikivote_wc.txt ../data/blank1.txt ../data/blank2.txt 200
 
-srun ./Greedy_Correlated ../data/wikivote_r_hom.txt ../data/blank1.txt ../data/blank2.txt out_wikivote_r_hom_20.txt 20 
-srun ./Greedy_Correlated ../data/wikivote_r_hom.txt ../data/blank1.txt ../data/blank2.txt out_wikivote_r_hom_60.txt 60 
-srun ./Greedy_Correlated ../data/wikivote_r_hom.txt ../data/blank1.txt ../data/blank2.txt out_wikivote_r_hom_120.txt 120 
-srun ./Greedy_Correlated ../data/wikivote_r_hom.txt ../data/blank1.txt ../data/blank2.txt out_wikivote_r_hom_200.txt 200 
+srun ./Greedy_Correlated ../data/wikivote_r_hom.txt ../data/blank1.txt ../data/blank2.txt 20
+srun ./Greedy_Correlated ../data/wikivote_r_hom.txt ../data/blank1.txt ../data/blank2.txt 60
+srun ./Greedy_Correlated ../data/wikivote_r_hom.txt ../data/blank1.txt ../data/blank2.txt 120
+srun ./Greedy_Correlated ../data/wikivote_r_hom.txt ../data/blank1.txt ../data/blank2.txt 200
 
-srun ./Greedy_Correlated ../data/lastfm_wc.txt ../data/blank1.txt ../data/blank2.txt out_lastfm_wc_20.txt 20 
-srun ./Greedy_Correlated ../data/lastfm_wc.txt ../data/blank1.txt ../data/blank2.txt out_lastfm_wc_60.txt 60 
-srun ./Greedy_Correlated ../data/lastfm_wc.txt ../data/blank1.txt ../data/blank2.txt out_lastfm_wc_120.txt 120 
-srun ./Greedy_Correlated ../data/lastfm_wc.txt ../data/blank1.txt ../data/blank2.txt out_lastfm_wc_200.txt 200 
+srun ./Greedy_Correlated ../data/lastfm_wc.txt ../data/blank1.txt ../data/blank2.txt 20
+srun ./Greedy_Correlated ../data/lastfm_wc.txt ../data/blank1.txt ../data/blank2.txt 60
+srun ./Greedy_Correlated ../data/lastfm_wc.txt ../data/blank1.txt ../data/blank2.txt 120
+srun ./Greedy_Correlated ../data/lastfm_wc.txt ../data/blank1.txt ../data/blank2.txt 200
 
-srun ./Greedy_Correlated ../data/lastfm_r_hom.txt ../data/blank1.txt ../data/blank2.txt out_lastfm_r_hom_20.txt 20 
-srun ./Greedy_Correlated ../data/lastfm_r_hom.txt ../data/blank1.txt ../data/blank2.txt out_lastfm_r_hom_60.txt 60 
-srun ./Greedy_Correlated ../data/lastfm_r_hom.txt ../data/blank1.txt ../data/blank2.txt out_lastfm_r_hom_120.txt 120 
-srun ./Greedy_Correlated ../data/lastfm_r_hom.txt ../data/blank1.txt ../data/blank2.txt out_lastfm_r_hom_200.txt 200 
+srun ./Greedy_Correlated ../data/lastfm_r_hom.txt ../data/blank1.txt ../data/blank2.txt 20
+srun ./Greedy_Correlated ../data/lastfm_r_hom.txt ../data/blank1.txt ../data/blank2.txt 60
+srun ./Greedy_Correlated ../data/lastfm_r_hom.txt ../data/blank1.txt ../data/blank2.txt 120
+srun ./Greedy_Correlated ../data/lastfm_r_hom.txt ../data/blank1.txt ../data/blank2.txt 200
 
 
