@@ -9,7 +9,7 @@ SOURCES = rfw_timer.cpp
 #
 
 GCC_NAME    = g++
-GCC_FLAGS   = -g -Wall -O4 -ansi -pedantic -fpermissive
+GCC_FLAGS   = -g -Wall -O4 -ansi -pedantic -fpermissive -std=c++0x
 GCC_LIBS    = -lm -L/usr/lib32/
 GCC_DEFINES = -DRFW_RUSAGE
 GCC_OBJECTS = $(SOURCES:.cpp=.o)
