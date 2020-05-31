@@ -468,13 +468,25 @@ void Greedy(int NUM_TO_SELECT, char* file){
 			//cout << "vertex "<< j <<" in team a will balance "<< (double)new_reachable_created_a[j]/(double)K <<" vertices on average"<< endl;
 			//cout << "vertex "<< j <<" in team b will balance "<< (double)new_reachable_created_b[j]/(double)K <<" vertices on average"<< endl;
 			if(new_reachable_created_a[j] > best_value_a){
-				best_value_a = new_reachable_created_a[j];
-				best_vertex_a = j;
+                int flag = 0;
+                for (int i = 0; i < b_seeds.size(); ++i) {
+                    if(j == b_seeds[i]) flag =1;
+                }
+                if(flag != 1){
+                    best_value_a = new_reachable_created_a[j];
+                    best_vertex_a = j;
+                }
 			} 
 			if(new_reachable_created_b[j] > best_value_b){
-				best_value_b = new_reachable_created_b[j];
-				best_vertex_b = j;
-			} 
+                int flag = 0;
+                for (int i = 0; i < a_seeds.size(); ++i) {
+                    if(j == a_seeds[i]) flag =1;
+                }
+                if(flag != 1){
+                    best_value_b = new_reachable_created_b[j];
+                    best_vertex_b = j;
+                }
+            }
 		}
 		
 		if(best_value_a == 0 && best_value_b == 0) {
